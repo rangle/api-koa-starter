@@ -3,5 +3,12 @@
   "plugins": [
     "syntax-async-functions",
     "transform-regenerator"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  }
 }
