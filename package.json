@@ -19,9 +19,9 @@
     "test": "cross-env PROJECT_ENV=testing npm run test:ci",
     "test:watch": "cross-env PROJECT_ENV=testing npm run test:mocha:watch",
     "build:transpile": "babel src -d dist",
-    "test:ci": "npm run lint && nyc npm run test:mocha",
-    "test:mocha": "babel-node ./node_modules/.bin/_mocha --opts ./test/mocha.opts",
-    "test:mocha:watch": "babel-node ./node_modules/.bin/_mocha --watch --opts ./test/mocha.opts",
+    "pretest:ci": "npm run lint",
+    "test:ci": "cross-env NODE_ENV=test nyc --all mocha",
+    "test:mocha:watch": "mocha --watch",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -34,19 +34,21 @@
     "koa-helmet": "^2.0.0-alpha.1",
     "koa-morgan": "^1.0.1",
     "koa-router": "^7.0.1",
+    "ramda": "^0.21.0",
     "winston": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.8.0",
     "babel-eslint": "^6.0.4",
+    "babel-plugin-istanbul": "^1.0.3",
+    "babel-register": "^6.9.0",
     "chai": "^3.5.0",
     "cross-env": "^1.0.8",
     "eslint": "^3.0.1",
-    "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
     "mockery": "^1.7.0",
     "nodemon": "^1.9.2",
-    "nyc": "^6.4.4",
+    "nyc": "^7.0.0",
     "sinon": "^1.17.3",
     "supertest": "^1.2.0",
     "supertest-as-promised": "^3.1.0"
@@ -63,9 +65,16 @@
     ],
     "exclude": [
       "**/*.spec.js",
-      "env",
-      "docs",
-      "test"
-    ]
+      "test/**",
+      "env/**",
+      "docs/**",
+      "dist/**"
+    ],
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "sourceMap": false,
+    "instrument": false
   }
 }
