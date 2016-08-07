@@ -35,7 +35,7 @@
     "koa-helmet": "^2.0.0-alpha.1",
     "koa-morgan": "^1.0.1",
     "koa-router": "^7.0.1",
-    "ramda": "^0.21.0",
+    "ramda": "^0.22.1",
     "winston": "^2.2.0"
   },
   "devDependencies": {
