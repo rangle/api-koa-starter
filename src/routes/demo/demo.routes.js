@@ -14,5 +14,5 @@ export const demoRouter = koaRouter()
     demo)
   .get(
     '/foo-must-be-numeric',
-    validateParams(['query'], ['foo'], match(/[0-9]/)),
+    validateParams(['query'], ['foo'], match(/^[0-9]*$/)),
     demo);
