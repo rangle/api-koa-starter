@@ -28,6 +28,7 @@
     "test:ci": "cross-env NODE_ENV=test nyc --all mocha",
     "test:mocha:watch": "mocha --watch",
     "lint": "eslint .",
+    "raml": "raml2html -i doc/api/api.raml -o api.html",
     "daemon:start": "forever --uid api-koa-starter -a -c 'node --require babel-polyfill' start ./dist/app.js",
     "daemon:stop": "forever stop api-koa-starter || true"
   },
@@ -57,6 +58,7 @@
     "mockery": "^1.7.0",
     "nodemon": "^1.9.2",
     "nyc": "^7.0.0",
+    "raml2html": "^3.0.1",
     "rimraf": "^2.5.3",
     "sinon": "^1.17.3",
     "supertest": "^2.0.0",

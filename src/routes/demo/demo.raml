@@ -1,0 +1,38 @@
+displayName: |
+  Demo endpoints
+description: |
+  Some demo endpoints to show how various features work, including this documentation.
+/foo-is-required:
+  post:
+    body:
+      application/json:
+        example: |
+          {
+            "foo": "bar"
+          }
+    description: |
+      Use is to demonstrate request validation is working as intended and forces params to be provided.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              'It works!'
+    securedBy: [none]
+/foo-must-be-numeric:
+  post:
+    body:
+      application/json:
+        example: |
+          {
+            "foo": 123
+          }
+    description: |
+      Use is to demonstrate request validation is working as intended and enforces numeric content of params.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              'It works!'
+    securedBy: [none]

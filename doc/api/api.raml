@@ -1,0 +1,11 @@
+#%RAML 0.8
+title: Koa Starter
+baseUri: https://api-koa-starter.rangleapp.io
+mediaType: application/json
+securitySchemes:
+  - none:
+      type: x-none
+      description: |
+        Application currently does not include any authentication.
+/demo: !include ../../src/routes/demo/demo.raml
+/health-check: !include ../../src/routes/health-check/health-check.raml

@@ -1,6 +1,9 @@
 # bin folder (compiled js code)
 dist
 
+# RAML Generated API docs
+api.html
+
 # Logs
 logs
 *.log

@@ -1,0 +1,30 @@
+displayName: |
+  Health Check endpoints
+description: |
+  Some endpoints to act as heart beats for your API.
+/shallow:
+  get:
+    description: |
+      Heart beat to confirm your API is online and responding.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "ok": "OK"
+              }
+    securedBy: [none]
+/deep:
+  get:
+    description: |
+      Heart beat to confirm your API is online and any deep dependencies are also responding.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "ok": "OK"
+              }
+    securedBy: [none]

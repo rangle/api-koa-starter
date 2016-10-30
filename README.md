@@ -43,6 +43,12 @@ npm run staging:start
 npm run staging:stop
 ```
 
+Build (or update) the API documentation to `api.html` in the root:
+
+```sh
+npm run raml
+```
+
 ## TODO:
 
 * Basic prodmode clustering with throng?
