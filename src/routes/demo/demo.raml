@@ -3,15 +3,14 @@ displayName: |
 description: |
   Some demo endpoints to show how various features work, including this documentation.
 /foo-is-required:
-  post:
-    body:
-      application/json:
-        example: |
-          {
-            "foo": "bar"
-          }
+  get:
     description: |
       Use is to demonstrate request validation is working as intended and forces params to be provided.
+    queryParameters:
+      foo:
+        type: string
+        required: true
+        example: "bar"
     responses:
       200:
         body:
@@ -20,15 +19,14 @@ description: |
               'It works!'
     securedBy: [none]
 /foo-must-be-numeric:
-  post:
-    body:
-      application/json:
-        example: |
-          {
-            "foo": 123
-          }
+  get:
     description: |
       Use is to demonstrate request validation is working as intended and enforces numeric content of params.
+    queryParameters:
+      foo:
+        type: number
+        required: true
+        example: "123"
     responses:
       200:
         body:
