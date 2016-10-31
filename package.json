@@ -63,7 +63,7 @@
     "rimraf": "^2.5.3",
     "sinon": "^1.17.3",
     "supertest": "^2.0.0",
-    "supertest-as-promised": "^3.1.0"
+    "supertest-as-promised": "^4.0.1"
   },
   "nyc": {
     "check-coverage": true,
