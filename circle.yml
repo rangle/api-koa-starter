@@ -2,12 +2,13 @@ machine:
   node:
     version: 6
 
-pre:
-  - npm install -g yarn@0.16.1
-override:
-  - yarn install
-post:
-  - 'yarn raml'
+dependencies:
+  pre:
+    - npm install -g yarn@0.16.1
+  override:
+    - yarn install
+  post:
+    - yarn raml
 
 test:
   override:
