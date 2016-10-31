@@ -52,7 +52,7 @@
     "babel-plugin-istanbul": "^1.0.3",
     "babel-register": "^6.9.0",
     "chai": "^3.5.0",
-    "cross-env": "^2.0.0",
+    "cross-env": "^3.1.0",
     "eslint": "^3.0.1",
     "forever": "^0.15.2",
     "mocha": "^3.0.0",
