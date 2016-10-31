@@ -1,5 +1,5 @@
 import koaRouter from 'koa-router';
-import { demo } from './demo.controller';
+import { demo, error, errorWithoutMessage } from './demo.controller';
 import { validateParams } from '../../middleware/validate-params';
 
 const match = regex => term => regex.test(term);
@@ -15,4 +15,11 @@ export const demoRouter = koaRouter()
   .get(
     '/foo-must-be-numeric',
     validateParams(['query'], ['foo'], match(/^[0-9]*$/)),
-    demo);
+    demo)
+  .post(
+    '/body-must-have-foo-with-bar',
+    validateParams(['request', 'body', 'foo'], ['bar']),
+    demo)
+  .get('/error', error)
+  .get('/error-without-message', errorWithoutMessage);
+
