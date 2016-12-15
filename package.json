@@ -45,6 +45,7 @@
     "koa-morgan": "^1.0.1",
     "koa-router": "^7.0.1",
     "ramda": "^0.22.1",
+    "request": "^2.79.0",
     "request-promise": "^4.1.1",
     "uuid": "^3.0.1",
     "winston": "^2.2.0"
@@ -66,7 +67,8 @@
     "rimraf": "^2.5.3",
     "sinon": "^1.17.3",
     "supertest": "^2.0.0",
-    "supertest-as-promised": "^4.0.1"
+    "supertest-as-promised": "^4.0.1",
+    "throng": "^4.0.0"
   },
   "nyc": {
     "check-coverage": true,
