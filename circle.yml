@@ -1,14 +1,24 @@
 machine:
+  environment:
+    YARN_VERSION: 0.18.1
+    PATH: "${PATH}:${HOME}/.yarn/bin:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
   node:
     version: 6
 
 dependencies:
   pre:
-    - npm install -g yarn@0.16.1
+    - |
+      if [[ ! -e ~/.yarn/bin/yarn || $(yarn --version) != "${YARN_VERSION}" ]]; then
+        echo "Download and install Yarn."
+        curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION
+      else
+        echo "The correct version of Yarn is already installed."
+      fi
   override:
     - yarn install
-  post:
-    - yarn raml
+  cache_directories:
+    - ~/.yarn
+    - ~/.cache/yarn
 
 test:
   override:
