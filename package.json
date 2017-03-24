@@ -63,7 +63,7 @@
     "mockery": "^2.0.0",
     "nodemon": "^1.9.2",
     "nyc": "^10.1.2",
-    "raml2html": "^4.0.5",
+    "raml2html": "^6.1.0",
     "rimraf": "^2.5.3",
     "sinon": "^1.17.3",
     "supertest": "^2.0.0",
