@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+const uuid = require('uuid');
 
 /**
  * Attaches a unique ID to each incoming request. We can use this when writing
@@ -6,9 +6,11 @@ import uuid from 'uuid';
  * logs on a real system we can tell what's happening for each one of several
  * multiple, interleaved incoming requests.
  */
-export async function generateRequestId(ctx, next) {
+async function generateRequestId(ctx, next) {
   const id = uuid.v4();
   ctx.requestId = id;
   ctx.req.requestId = id; // Used by Morgan.
   await next();
 }
+
+module.exports = { generateRequestId };

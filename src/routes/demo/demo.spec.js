@@ -1,5 +1,5 @@
-import supertest from 'supertest-as-promised';
-import { app } from '../../app';
+const supertest = require('supertest-as-promised');
+const { app } = require('../../app');
 
 const request = supertest.agent(app.listen());
 

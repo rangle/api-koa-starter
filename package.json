@@ -11,32 +11,24 @@
   "bugs": {
     "url": "https://github.com/rangle/rangle-starter/issues"
   },
+  "engines": {
+    "node": ">= 8"
+  },
   "scripts": {
-    "postinstall": "npm run build",
-    "clean": "rimraf coverage dist",
-    "build": "npm run clean && npm run build:transpile",
-    "start": "cross-env PROJECT_ENV=staging node --require babel-polyfill ./dist/app.js",
-    "dev": "cross-env PROJECT_ENV=local nodemon --exec babel-node -- ./src/app.js",
-    "local:start": "cross-env PROJECT_ENV=local daemon:start",
-    "local:stop": "cross-env PROJECT_ENV=local daemon:stop",
+    "start": "cross-env PROJECT_ENV=staging node --use-strict ./src/app.js",
+    "dev": "cross-env PROJECT_ENV=local nodemon --use-strict ./src/app.js",
+    "local:start": "cross-env PROJECT_ENV=local npm run daemon:start",
+    "local:stop": "cross-env PROJECT_ENV=local npm run daemon:stop",
     "staging:start": "cross-env PROJECT_ENV=staging npm run daemon:start",
     "staging:stop": "cross-env PROJECT_ENV=staging npm run daemon:stop",
-    "test": "cross-env PROJECT_ENV=testing npm run test:ci",
-    "test:watch": "cross-env PROJECT_ENV=testing npm run test:mocha:watch",
-    "build:transpile": "babel src -d dist",
-    "pretest:ci": "npm run lint",
-    "test:ci": "cross-env NODE_ENV=test nyc --all mocha",
-    "test:mocha:watch": "mocha --watch",
+    "test": "cross-env PROJECT_ENV=testing jest --coverage --forceExit --config jest-config.json",
+    "test:watch": "cross-env PROJECT_ENV=testing jest --watch",
     "lint": "eslint .",
     "raml": "raml2html -i doc/api/api.raml -o api.html",
-    "daemon:start": "forever --uid api-koa-starter -a -c 'node --require babel-polyfill' start ./dist/app.js",
+    "daemon:start": "forever --uid api-koa-starter -a -c 'node --use-strict' start ./src/app.js",
     "daemon:stop": "forever stop api-koa-starter || true"
   },
   "dependencies": {
-    "babel-plugin-syntax-async-functions": "^6.1.4",
-    "babel-plugin-transform-regenerator": "^6.1.4",
-    "babel-polyfill": "^6.1.4",
-    "babel-preset-es2015": "^6.13.0",
     "debug": "^2.4.0",
     "koa": "^2.0.0",
     "koa-body": "^1.4.0",
@@ -51,47 +43,17 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.8.0",
-    "babel-eslint": "^7.0.1",
-    "babel-plugin-istanbul": "^3.1.2",
-    "babel-register": "^6.9.0",
     "chai": "^3.5.0",
     "cross-env": "^3.1.3",
     "eslint": "^3.0.1",
     "forever": "^0.15.2",
-    "mocha": "^3.0.0",
+    "jest": "^20.0.4",
     "mockery": "^2.0.0",
     "nodemon": "^1.9.2",
-    "nyc": "^10.1.2",
     "raml2html": "^4.0.5",
-    "rimraf": "^2.5.3",
     "sinon": "^1.17.3",
     "supertest": "^2.0.0",
     "supertest-as-promised": "^4.0.1",
     "throng": "^4.0.0"
-  },
-  "nyc": {
-    "check-coverage": true,
-    "lines": 65,
-    "branches": 58,
-    "functions": 81,
-    "statements": 65,
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "exclude": [
-      "**/*.spec.js",
-      "test/**",
-      "env/**",
-      "docs/**",
-      "dist/**"
-    ],
-    "require": [
-      "babel-register",
-      "babel-polyfill"
-    ],
-    "sourceMap": false,
-    "instrument": false
   }
 }

@@ -1,13 +1,13 @@
-import koaRouter from 'koa-router';
-import { demo, error, errorWithoutMessage } from './demo.controller';
-import { validateParams } from '../../middleware/validate-params';
+const koaRouter = require('koa-router');
+const { demo, error, errorWithoutMessage } = require('./demo.controller');
+const { validateParams } = require('../../middleware/validate-params');
 
 const match = regex => term => regex.test(term);
 
 /**
  * A simple module to demonstrate declarative parameter validation.
  */
-export const demoRouter = koaRouter()
+const demoRouter = koaRouter()
   .get(
     '/foo-is-required',
     validateParams(['query'], ['foo']),
@@ -23,3 +23,4 @@ export const demoRouter = koaRouter()
   .get('/error', error)
   .get('/error-without-message', errorWithoutMessage);
 
+module.exports = { demoRouter };

@@ -1,23 +1,23 @@
 {
   "name": "api-koa-starter",
   "scripts": {
-  },
+ },
   "env": {
     "NPM_CONFIG_PRODUCTION": {
       "value": "false"
-    }
-  },
+   }
+ },
   "formation": {
     "web": {
       "quantity": 1
-    }
-  },
+   }
+ },
   "addons": [
 
   ],
   "buildpacks": [
     {
       "url": "heroku/nodejs"
-    }
+   }
   ]
 }

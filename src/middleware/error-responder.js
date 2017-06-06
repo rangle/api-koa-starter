@@ -1,8 +1,8 @@
-import { logger } from '../services/logger';
+const { logger } = require('../services/logger');
 
 const UNKNOWN_ERROR_CODE = 500;
 
-export async function errorResponder(ctx, next) {
+async function errorResponder(ctx, next) {
   try {
     await next();
   } catch (err) {
@@ -15,3 +15,5 @@ export async function errorResponder(ctx, next) {
     }
   }
 }
+
+module.exports = { errorResponder };

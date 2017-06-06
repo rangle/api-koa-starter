@@ -1,17 +1,17 @@
-import Koa from 'koa';
-import koaRouter from 'koa-router';
-import bodyParser from 'koa-body';
-import koaConvert from 'koa-convert';
-import helmet from 'koa-helmet';
-import { logger } from './services/logger';
-import { generateRequestId } from './middleware/request-id-generator';
-import { errorResponder } from './middleware/error-responder';
-import { k } from './project-env';
-import { rootRouter } from './routes/root.routes';
-import { healthCheckRouter } from './routes/health-check/health-check.routes';
-import { demoRouter } from './routes/demo/demo.routes';
+const Koa = require('koa');
+const koaRouter = require('koa-router');
+const bodyParser = require('koa-body');
+const koaConvert = require('koa-convert');
+const helmet = require('koa-helmet');
+const { logger } = require('./services/logger');
+const { generateRequestId } = require('./middleware/request-id-generator');
+const { errorResponder } = require('./middleware/error-responder');
+const { k } = require('./project-env');
+const { rootRouter } = require('./routes/root.routes');
+const { healthCheckRouter } = require('./routes/health-check/health-check.routes');
+const { demoRouter } = require('./routes/demo/demo.routes');
 
-export const app = new Koa();
+const app = new Koa();
 
 // Entry point for all modules.
 const api = koaRouter()
@@ -48,3 +48,5 @@ if (require.main === module) {
   const throng = require('throng');
   throng(startFunction);
 }
+
+module.exports = { app };

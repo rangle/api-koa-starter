@@ -1,10 +1,12 @@
-import koaRouter from 'koa-router';
-import { shallow, deep } from './health-check.controller';
+const koaRouter = require('koa-router');
+const { shallow, deep } = require('./health-check.controller');
 
 /**
  * Health check routes: used by load balancers to determine if traffic should
  * be routed to nodes.
  */
-export const healthCheckRouter = koaRouter()
+const healthCheckRouter = koaRouter()
   .get('/shallow', shallow)
   .get('/deep', deep);
+
+module.exports = { healthCheckRouter };

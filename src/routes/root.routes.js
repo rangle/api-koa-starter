@@ -1,8 +1,10 @@
-import koaRouter from 'koa-router';
-import { root } from './root.controller';
+const koaRouter = require('koa-router');
+const { root } = require('./root.controller');
 
 /**
  * Root routes: just return the API name.
  */
-export const rootRouter = koaRouter()
+const rootRouter = koaRouter()
   .get('/', root);
+
+module.exports = { rootRouter };

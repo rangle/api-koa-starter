@@ -1,7 +1,7 @@
-import request from 'request-promise';
-import { logger } from './logger';
+const request = require('request-promise');
+const { logger } = require('./logger');
 
-export function outgoingRequest({ requestId, url, options }) {
+function outgoingRequest({ requestId, url, options }) {
   const method = options && options.method ? options.method : 'GET';
 
   logger.info(`[OUTGOING ${method} ${url}]: START`, { requestId });
@@ -25,3 +25,5 @@ export function outgoingRequest({ requestId, url, options }) {
       throw err;
     });
 }
+
+module.exports = { outgoingRequest };

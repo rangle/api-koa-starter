@@ -1,5 +1,5 @@
-import { logger } from '../services/logger';
-import R from 'ramda';
+const { logger } = require('../services/logger');
+const R = require('ramda');
 
 /**
  * Middleware that checks for required parameters.
@@ -13,7 +13,7 @@ import R from 'ramda';
  * parameters in question. If this is omitted, a simple presence check will
  * be performed.
  */
-export const validateParams
+const validateParams
   = (containerPath, params, validator) => async (ctx, next) => {
     const container = R.path(containerPath, ctx);
 
@@ -35,3 +35,5 @@ const assertValid = (ctx, container, validator) => param => {
     ctx.throw(400, `${param} is invalid.`);
   }
 };
+
+module.exports = { validateParams };
