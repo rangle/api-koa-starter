@@ -1,13 +1,12 @@
 machine:
   environment:
-    YARN_VERSION: 0.18.1
-    PATH: "${PATH}:${HOME}/.yarn/bin:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
   node:
     version: 8
 
 dependencies:
   override:
-    - yarn install
+    - yarn
   cache_directories:
     - ~/.yarn
     - ~/.cache/yarn
