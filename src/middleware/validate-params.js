@@ -13,8 +13,8 @@ const R = require('ramda');
  * parameters in question. If this is omitted, a simple presence check will
  * be performed.
  */
-const validateParams
-  = (containerPath, params, validator) => async (ctx, next) => {
+const validateParams = (containerPath, params, validator) =>
+  async (ctx, next) => {
     const container = R.path(containerPath, ctx);
 
     if (!container) {
