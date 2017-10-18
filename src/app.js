@@ -45,8 +45,12 @@ function startFunction() {
 
 /* istanbul ignore if */
 if (require.main === module) {
-  const throng = require('throng');
-  throng(startFunction);
+  if (process.env.PROJECT_ENV === 'staging') {
+    const throng = require('throng');
+    throng(startFunction);
+  } else {
+    startFunction();
+  }
 }
 
 module.exports = { app };
