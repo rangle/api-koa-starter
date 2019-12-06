@@ -5,7 +5,6 @@ FROM ${repo}:${tag}
 
 COPY . /Hackathon/hackathon-wind/
 
-RUN cd /Hackathon/hackathon-wind \
-  && npm install
-
-CMD [ "npm", "start" ]
+WORKDIR /Hackathon/hackathon-wind
+RUN npm install
+CMD [ "npm", "run", "start" ]
