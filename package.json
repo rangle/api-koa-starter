@@ -1,14 +1,14 @@
 {
-  "name": "koa-starter",
+  "name": "hackathon-wind",
   "description": "A boiler-plate setup for API servers with Koa",
   "version": "0.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rangle/api-koa-starter.git"
+    "url": "https://github.com/changev/hackathon-wind.git"
   },
   "bugs": {
-    "url": "https://github.com/rangle/rangle-starter/issues"
+    "url": "https://github.com/changev/hackathon-wind/issues"
   },
   "engines": {
     "node": ">= 8"
@@ -24,8 +24,8 @@
     "test:watch": "cross-env PROJECT_ENV=testing jest --watch",
     "lint": "eslint .",
     "raml": "raml2html -i doc/api/api.raml -o api.html",
-    "daemon:start": "forever --uid api-koa-starter -a -c 'node --use-strict' start ./src/app.js",
-    "daemon:stop": "forever stop api-koa-starter || true"
+    "daemon:start": "forever --uid hackathon-wind -a -c 'node --use-strict' start ./src/app.js",
+    "daemon:stop": "forever stop hackathon-wind || true"
   },
   "dependencies": {
     "debug": "^3.1.0",
