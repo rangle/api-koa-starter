@@ -38,7 +38,7 @@ app
   .use(api.allowedMethods());
 
 function startFunction() {
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT || 3001;
   logger.info(`Starting server on port ${PORT}`);
   app.listen(PORT);
 }
