@@ -28,7 +28,7 @@
     "daemon:stop": "forever stop api-koa-starter || true"
   },
   "dependencies": {
-    "debug": "^3.1.0",
+    "debug": "^3.2.6",
     "koa": "^2.5.1",
     "koa-body": "^2.5.0",
     "koa-convert": "^1.2.0",
