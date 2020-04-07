@@ -35,7 +35,7 @@
     "koa-helmet": "^4.0.0",
     "koa-morgan": "^1.0.1",
     "koa-router": "^7.4.0",
-    "ramda": "^0.25.0",
+    "ramda": "^0.27.0",
     "request": "^2.86.0",
     "request-promise": "^4.2.2",
     "uuid": "^3.2.1",
