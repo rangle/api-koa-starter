@@ -37,7 +37,7 @@
     "koa-router": "^7.4.0",
     "ramda": "^0.25.0",
     "request": "^2.86.0",
-    "request-promise": "^4.2.2",
+    "request-promise": "^4.2.5",
     "uuid": "^3.2.1",
     "winston": "^2.4.2"
   },
